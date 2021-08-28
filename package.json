@@ -1,0 +1,62 @@
+{
+  "name": "ninja",
+  "version": "1.0.0",
+  "description": "Ninja Challenge:",
+  "main": "index.ts",
+  "scripts": {
+    "start": "npm run build && node ./build/index.js",
+    "start:dev": "nodemon index.ts",
+    "build": "tsc --project ./",
+    "test": "mocha -r ts-node/register test/unit/**/*.spec.ts  --reporter list",
+    "coverage": "nyc npm run test report --reporter=html",
+    "coverageAcceptance": "nyc check-coverage --statement -5 --branch -3 --function 50",
+    "precommit": "npm test && npm run lint",
+    "prepush": "npm run coverageAcceptance",
+    "docs": "npx typedoc --out docs src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prudvihemanth/ninja.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prudvihemanth/ninja/issues"
+  },
+  "homepage": "https://github.com/prudvihemanth/ninja#readme",
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.13.0",
+    "@hapi/boom": "^9.1.4",
+    "@hapi/hapi": "^20.1.5",
+    "@hapi/inert": "^6.0.3",
+    "@hapi/vision": "^6.1.0",
+    "@project-serum/serum": "^0.13.57",
+    "@solana/web3.js": "^1.24.1",
+    "bs58": "^4.0.1",
+    "chai": "^4.3.4",
+    "hapi-swagger": "^14.2.4",
+    "joi": "^17.4.2",
+    "mocha": "^9.1.0",
+    "mongoose": "^6.0.2",
+    "node-fetch": "^2.6.1",
+    "sinon": "^11.1.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/bs58": "^4.0.1",
+    "@types/chai": "^4.2.21",
+    "@types/hapi__hapi": "^20.0.9",
+    "@types/hapi__inert": "^5.2.3",
+    "@types/hapi__vision": "^5.5.3",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.7.2",
+    "@types/node-fetch": "^2.5.12",
+    "@types/sinon": "^10.0.2",
+    "nodemon": "^2.0.12",
+    "nyc": "^15.1.0",
+    "ts-node": "^10.2.1",
+    "typedoc": "^0.21.6",
+    "typescript": "^4.3.5"
+  }
+}
